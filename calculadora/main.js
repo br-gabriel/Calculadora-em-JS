@@ -13,7 +13,7 @@ const operacaoPendente = () => operador !== undefined;
 
 const calcular = () => {
     if(operacaoPendente()) {
-        const numeroAtual = parseFloat(display.textContent);
+        const numeroAtual = parseFloat(display.textContent.replace(',','.'));
         novoNumero = true;
         const resultado = eval(`${numeroAnterior}${operador}${numeroAtual}`);
         atualizarDisplay(resultado);
@@ -23,11 +23,11 @@ const calcular = () => {
 const atualizarDisplay = (texto) => {
     if (novoNumero) {
         //Se um novo número for inserido, limpa o dislpay e adiciona o novo número
-        display.textContent = texto;
+        display.textContent = texto.toLocaleString('BR');
         novoNumero = false;
     } else {
         //Concatena o texto já existente com o texto enviado para o display por meio dos botões
-        display.textContent += texto;
+        display.textContent += texto.toLocaleString('BR');
     }
 }
 
@@ -39,7 +39,7 @@ const selecionarOperador = (evento) => {
         calcular();
         novoNumero = true;
         operador = evento.target.textContent;
-        numeroAnterior = parseFloat(display.textContent);
+        numeroAnterior = parseFloat(display.textContent.replace(',','.'));
     }
 }
 
@@ -87,4 +87,22 @@ const inverterSinal = () => {
 }
 
 //Botão de inverter o sinal
-document.getElementById('inverter').addEventListener('click', inverterSinal);
+document.getElementById('inverterSinal').addEventListener('click', inverterSinal);
+
+//Funções que checam se pode adicionar a vírgula no cálculo
+const existeDecimal = () => display.textContent.indexOf(',') !== -1;
+const existeValor = () => display.textContent.length > 0;
+
+//Função de inserir o valor decimal
+const inserirDecimal = () => {
+    if(!existeDecimal()) {
+        if(existeValor()) {
+            atualizarDisplay(',');
+        } else {
+            atualizarDisplay('0,');
+        }
+    }
+}
+
+//Botao da vírgula
+document.getElementById('virgula').addEventListener('click', inserirDecimal);
