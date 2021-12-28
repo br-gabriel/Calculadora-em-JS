@@ -72,9 +72,19 @@ const limparCalculo = () => {
 //Botão de limpar o cálculo (C)
 document.getElementById('limparCalculo').addEventListener('click', limparCalculo);
 
+//Função de backspace (<<)
 const removerUltimoNumero = () => {
     display.textContent = display.textContent.slice(0, -1);
 }
 
 //Botão de backspace (<<)
 document.getElementById('backspace').addEventListener('click', removerUltimoNumero);
+
+//Função de inverter o sinal
+const inverterSinal = () => {
+    novoNumero = true;
+    atualizarDisplay(display.textContent * -1);
+}
+
+//Botão de inverter o sinal
+document.getElementById('inverter').addEventListener('click', inverterSinal);
