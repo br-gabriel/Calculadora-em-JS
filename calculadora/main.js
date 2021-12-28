@@ -17,16 +17,6 @@ const calcular = () => {
         novoNumero = true;
         const resultado = eval(`${numeroAnterior}${operador}${numeroAtual}`);
         atualizarDisplay(resultado);
-
-        /*if(operador == '+') {
-            atualizarDisplay(numeroAnterior + numeroAtual);
-        } else if (operador == '-') {
-            atualizarDisplay(numeroAnterior - numeroAtual)
-        } else if (operador == '*') {
-            atualizarDisplay(numeroAnterior * numeroAtual)
-        } else if (operador == '/') {
-            atualizarDisplay(numeroAnterior / numeroAtual)
-        }*/
     }
 }
 
@@ -57,4 +47,34 @@ const selecionarOperador = (evento) => {
 numeros.forEach(numero => numero.addEventListener('click', inserirNumero));
 operadores.forEach(operador => operador.addEventListener('click', selecionarOperador));
 
-document.getElementById('igual').addEventListener('click', calcular)
+//Traz o resultado da operação e impede que o botão igual faça a mesma operação novamente, com o resultado final
+const ativarIgual = () => {
+    calcular();
+    operador = undefined;
+}
+//Adiciona o evento de click no botão de igual e chama a função ativarIgual
+document.getElementById('igual').addEventListener('click', ativarIgual);
+
+//Função de limpar o display (CE)
+const limparDisplay = () => display.textContent = '';
+
+//Botão de apagar o display (CE)
+document.getElementById('limparDisplay').addEventListener('click', limparDisplay);
+
+//Função de limpar o cálculo
+const limparCalculo = () => {
+    limparDisplay();
+    operador = undefined;
+    novoNumero = true;
+    numeroAnterior = undefined;
+}
+
+//Botão de limpar o cálculo (C)
+document.getElementById('limparCalculo').addEventListener('click', limparCalculo);
+
+const removerUltimoNumero = () => {
+    display.textContent = display.textContent.slice(0, -1);
+}
+
+//Botão de backspace (<<)
+document.getElementById('backspace').addEventListener('click', removerUltimoNumero);
