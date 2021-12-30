@@ -5,8 +5,8 @@
 }
 
 body {
-    background-color: whitesmoke;
-    padding: 30px 0;
+    background-color: #181818;
+    padding: 20vh 0;
 }
 
 .calculator {
@@ -15,7 +15,6 @@ body {
     background-color: yellowgreen;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 7px 7px 20px #383838;
 }
 
 .display {
@@ -51,7 +50,7 @@ body {
 }
 
 button:hover {
-    background-color: yellowgreen;
-    color: black;
+    background-color: #383838;
+    color: white;
     transition: .3s;
 }
