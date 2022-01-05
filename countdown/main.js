@@ -43,6 +43,3 @@ const tempoRestante = () => {
 }
 
 contagemRegressiva(tempoRestante());
-
-//Alterar o formatar digito 
-//Adicionar um input date e horas, para o usuário definir a data e hora do evento
