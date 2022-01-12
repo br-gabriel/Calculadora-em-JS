@@ -4,8 +4,18 @@
 
 //Caso o textContent esteja vazio não cria uma nova tarefa
 
-
-//Ao clicar em concluido o texto fica riscado
-
 //Opção de remover a tarefa com um botão "X"
 //Botão para remover todas as tarefas de uma vez
+
+'use strict';
+
+const criarItem = (tarefa) => {
+    const item = document.createElement('label');
+    item.classList.add('todo_item');
+    item.innerHTML = `
+    <input type="checkbox">
+    <div>${tarefa}</div>
+    <input type="button" value="X">`
+
+    document.getElementById('listaDeTarefas').appendChild(item);
+}
