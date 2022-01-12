@@ -58,8 +58,9 @@ button:hover {
     transition: .3s;
 }
 
-.listaDeTarefas > input[type='checkbox']:checked + p{
-    text-decoration: line-through;
+input[type='button']:hover {
+    background: #a8a8a8;
+    transition: .2s;
 }
 
 .listaDeTarefas {
@@ -98,8 +99,9 @@ button:hover {
 input[type='button'] {
     background: white;
     border: none;
-    width: 1em;
-    height: 1em;
+    width: 1.1em;
+    height: 1.1em;
+    border-radius: .3em;
     margin-left: 20px;
     margin-bottom: 1px;
 }
