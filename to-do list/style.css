@@ -91,6 +91,10 @@ button:hover {
     margin-left: -15px;
 }
 
+.todo_item > input[type='checkbox']:checked  + div {
+    text-decoration:line-through;
+}
+
 input[type='button'] {
     background: white;
     border: none;
