@@ -37,29 +37,42 @@ const criarItem = (tarefa, status, indice) => {
     document.getElementById('listaDeTarefas').appendChild(item);
 }
 
+//Função que impede a duplicação de itens caso a função atualizarTela seja acionada
 const limparTarefas = () => {
     const listaDeTarefas = document.getElementById('listaDeTarefas');
+    //Caso a listaDeTarefas tenha o primeiro filho, a função remove os itens até o primeiro item duplicado
     while (listaDeTarefas.firstChild) {
         listaDeTarefas.removeChild(listaDeTarefas.lastChild)
     }
 }
 
 const atualizarTela = () => {
+    //Impede que os itens se dupliquem ao atualizar a tela
     limparTarefas();
+
     const dataBase = getBanco();
+
+    //Envia somente os valores para a função criarItem
     dataBase.forEach((item, indice) => criarItem(item.tarefa, item.status, indice));
 }
 
 const inserirItem = (evento) => {
+    //Tecla pressionada que acionou o evento
     const tecla = evento.key;
+    //Texto adicionado em 'novaTarefa' ao ser acionado o evento
     const texto = evento.target.value;
+
     if (tecla === 'Enter') {
+        //Recebe o banco de dados
         const dataBase = getBanco();
+        //Adiciona a tarefa com o status sem o 'checked'
         dataBase.push ({'tarefa' : texto, 'status' : ''});
+        //Envia para o banco de dados
         setBanco(dataBase);
+    
         atualizarTela();
 
-        //Limpa o texto dentro do input
+        //Limpa o texto dentro do input 'novaTarefa'
         evento.target.value = '';
     }
 }
