@@ -1,7 +1,6 @@
 //Caso o textContent esteja vazio não cria uma nova tarefa
 //Botão para remover todas as tarefas de uma vez
 //Adicionar função ao botão
-//Adicionar hover nos labels/tarefas
 
 /*localStorage só armazena arquivos em string, então é necessário 
 converter os dados em string por meio do comando 'JSON.stringify(dataBase)',
@@ -62,7 +61,7 @@ const inserirItem = (evento) => {
     //Texto adicionado em 'novaTarefa' ao ser acionado o evento
     const texto = evento.target.value;
 
-    if (tecla === 'Enter') {
+    if (tecla === 'Enter' && texto !== '') {
         //Recebe o banco de dados
         const dataBase = getBanco();
         //Adiciona a tarefa com o status sem o 'checked'
