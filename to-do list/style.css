@@ -55,7 +55,7 @@ button:hover, input[type='button']:hover, input[type='checkbox'] {
 
 /*Botão de adicionar tarefas*/
 button:hover {
-    background: #005fc5;
+    background: #0054ad;
     transition: .3s;
 }
 

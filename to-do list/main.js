@@ -1,5 +1,3 @@
-//Caso o textContent esteja vazio não cria uma nova tarefa
-//Botão para remover todas as tarefas de uma vez
 //Adicionar função ao botão
 
 /*localStorage só armazena arquivos em string, então é necessário 
@@ -61,6 +59,8 @@ const inserirItem = (evento) => {
     //Texto adicionado em 'novaTarefa' ao ser acionado o evento
     const texto = evento.target.value;
 
+    const clickBotao = evento.target;
+
     if (tecla === 'Enter' && texto !== '') {
         //Recebe o banco de dados
         const dataBase = getBanco();
@@ -117,5 +117,6 @@ const clickItem = (evento) => {
 //Adição de eventos
 document.getElementById('novaTarefa').addEventListener('keypress', inserirItem);
 document.getElementById('listaDeTarefas').addEventListener('click', clickItem);
+//document.getElementsByClassName('addTarefa').addEventListener('click', botaoInserirItem);
 
 atualizarTela();
