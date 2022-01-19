@@ -59,7 +59,7 @@ const inserirItem = (evento) => {
     //Texto adicionado em 'novaTarefa' ao ser acionado o evento
     const texto = evento.target.value;
 
-    const clickBotao = evento.target;
+    //const clickBotao = evento.target;
 
     if (tecla === 'Enter' && texto !== '') {
         //Recebe o banco de dados
