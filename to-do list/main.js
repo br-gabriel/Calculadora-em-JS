@@ -15,7 +15,7 @@ const getBanco = () => JSON.parse(localStorage.getItem('todoList')) ?? [];
 //?? = Se estiver nulo, recebe um array vazio
 
 //Função que envia os dados para o localStorage
-const setBanco = (dataBase) => localStorage.setItem('todoList', JSON.stringify(dataBase))
+const setDados = (dataBase) => localStorage.setItem('todoList', JSON.stringify(dataBase))
 
 const criarItem = (tarefa, status, indice) => {
     //Cria um label em HTML
@@ -58,8 +58,6 @@ const inserirItem = (evento) => {
     const tecla = evento.key;
     //Texto adicionado em 'novaTarefa' ao ser acionado o evento
     const texto = evento.target.value;
-
-    //const clickBotao = evento.target;
 
     if (tecla === 'Enter' && texto !== '') {
         //Recebe o banco de dados
