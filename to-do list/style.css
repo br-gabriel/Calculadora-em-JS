@@ -49,17 +49,20 @@ button.addTarefa {
     width: 3em;
 }
 
-button:hover, input[type='button']:hover {
+button:hover, input[type='button']:hover, input[type='checkbox'] {
     cursor: pointer;
 }
 
+/*Botão de adicionar tarefas*/
 button:hover {
-    background: #005fc5;
+    background: #0054ad;
     transition: .3s;
 }
 
+/*Botão de excluir tarefa*/
 input[type='button']:hover {
-    background: #a8a8a8;
+    background: #2990ff;
+    color: white !important;
     transition: .2s;
 }
 
@@ -83,6 +86,15 @@ input[type='button']:hover {
     padding: .4em;
     border: 1px solid var(--secondary-color);
     border-radius: .3em;
+}
+
+.todo_item:hover {
+    border: 1px solid #2990ff;
+    color: #2990ff;
+}
+
+.todo_item:hover input[type='button'] {
+    color: #2990ff;
 }
 
 .todo_item div {
