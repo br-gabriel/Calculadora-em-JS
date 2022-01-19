@@ -9,23 +9,30 @@ para receber os dados em formato JSON, devemos utilizar o comando
 
 'use strict';
 
+//função que armazena temporariamente os dados do localStorage
 let dataBase = [];
 
 //Função que recebe os dados armazenados no localStorage
-//?? = Se estiver nulo, faça a outra opção
-const getBanco = () => JSON.parse(localStorage.getItem('todoList')) ?? [];
+const getDados = () => JSON.parse(localStorage.getItem('todoList')) ?? [];
+//?? = Se estiver nulo, receba um array vazio
 
 //Função que envia os dados para o localStorage
-const setBanco = (dataBase) => localStorage.setItem('todoList', JSON.stringify(dataBase))
+const setDados = (dataBase) => localStorage.setItem('todoList', JSON.stringify(dataBase))
 
 const criarItem = (tarefa, status, indice) => {
+    //Cria um label em HTML
     const item = document.createElement('label');
+
+    //Adiciona a classe 'todo_item' no item criado
     item.classList.add('todo_item');
+
+    //Atualiza o conteudo HMTL dentro do item criado, utilizando template string
     item.innerHTML = `
     <input type="checkbox" ${status} data-indice=${indice}>
     <div>${tarefa}</div>
     <input type="button" value="X" data-indice=${indice}>`
 
+    //Adiciona o item criado dentro da tag com ID 'listaDeTarefas'
     document.getElementById('listaDeTarefas').appendChild(item);
 }
 
@@ -38,7 +45,7 @@ const limparTarefas = () => {
 
 const atualizarTela = () => {
     limparTarefas();
-    const dataBase = getBanco();
+    const dataBase = getDados();
     dataBase.forEach((item, indice) => criarItem(item.tarefa, item.status, indice));
 }
 
@@ -46,9 +53,9 @@ const inserirItem = (evento) => {
     const tecla = evento.key;
     const texto = evento.target.value;
     if (tecla === 'Enter') {
-        const dataBase = getBanco();
+        const dataBase = getDados();
         dataBase.push ({'tarefa' : texto, 'status' : ''});
-        setBanco(dataBase);
+        setDados(dataBase);
         atualizarTela();
 
         //Limpa o texto dentro do input
@@ -57,16 +64,16 @@ const inserirItem = (evento) => {
 }
 
 const removerItem = (indice) => {
-    const dataBase = getBanco();
+    const dataBase = getDados();
     dataBase.splice(indice, 1);
-    setBanco(dataBase);
+    setDados(dataBase);
     atualizarTela();
 }
 
 const atualizarItem = (indice) => {
-    const dataBase = getBanco();
+    const dataBase = getDados();
     dataBase[indice].status = dataBase[indice].status === '' ? 'checked' : '';
-    setBanco(dataBase);
+    setDados(dataBase);
     atualizarTela();
 }
 
