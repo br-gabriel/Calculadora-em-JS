@@ -65,7 +65,7 @@ const inserirItem = (evento) => {
         //Adiciona a tarefa com o status sem o 'checked'
         dataBase.push ({'tarefa' : texto, 'status' : ''});
         //Envia para o banco de dados
-        setBanco(dataBase);
+        setDados(dataBase);
     
         atualizarTela();
 
@@ -80,7 +80,7 @@ const removerItem = (indice) => {
     //Remove o item selecionado por meio do splice, passando 1 item como parâmetro
     dataBase.splice(indice, 1);
     //Envia a atualização para o banco de dados
-    setBanco(dataBase);
+    setDados(dataBase);
     //Atualiza a tela com a alteração dos dados
     atualizarTela();
 }
@@ -91,7 +91,7 @@ const atualizarItem = (indice) => {
     //Verifica o status, se for vazio, troca para 'checked' se estiver 'checked' troca para vazio
     dataBase[indice].status = dataBase[indice].status === '' ? 'checked' : '';
     //Envia a atualização para o banco de dados
-    setBanco(dataBase);
+    setDados(dataBase);
     //Atualiza a tela com a alteração dos dados
     atualizarTela();
 }
@@ -112,9 +112,29 @@ const clickItem = (evento) => {
     /*Se o evento foi acionado por um checkbox, o item acionado é atualizado no DB*/
 }
 
+const botaoInserirItem = (evento) => {
+    //Capturar o texto do input
+    const inputNovaTarefa = document.getElementById('novaTarefa');
+    let texto = inputNovaTarefa.value;
+    
+    if (texto !== '') {
+        //Recebe o banco de dados
+        const dataBase = getBanco();
+        //Adiciona a tarefa com o status sem o 'checked'
+        dataBase.push ({'tarefa' : texto, 'status' : ''});
+        //Envia para o banco de dados
+        setDados(dataBase);
+    
+        atualizarTela();
+
+        //Limpa o valor do input para adicionar uma nova tarefa
+        inputNovaTarefa.value = '';
+    }
+}
+
 //Adição de eventos
 document.getElementById('novaTarefa').addEventListener('keypress', inserirItem);
 document.getElementById('listaDeTarefas').addEventListener('click', clickItem);
-//document.getElementsByClassName('addTarefa').addEventListener('click', botaoInserirItem);
+document.getElementById('addTarefa').addEventListener('click', botaoInserirItem);
 
 atualizarTela();
