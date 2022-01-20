@@ -1,5 +1,3 @@
-//Adicionar função ao botão
-
 /*localStorage só armazena arquivos em string, então é necessário 
 converter os dados em string por meio do comando 'JSON.stringify(dataBase)',
 para receber os dados em formato JSON, devemos utilizar o comando 
