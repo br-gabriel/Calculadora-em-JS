@@ -37,7 +37,7 @@ const contagemRegressiva = (tempo) => {
 
 const tempoRestante = () => {
     //Data de referência do Javascript: 1 de Janeiro de 1970
-    const dataEvento = new Date ('2022-10-09 00:00:00');
+    const dataEvento = new Date ('2022-03-26 17:15:00');
     const hoje = Date.now();
 
     //As datas em Javascript são em milisegundos

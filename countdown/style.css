@@ -65,4 +65,12 @@ body {
         font-size: calc(10px + 2vh);
         justify-content: space-around;
     }
+
+    p {
+        font-size: .5em;
+    }
+
+    .countdown div {
+        margin: 0 15px;
+    }
 }
