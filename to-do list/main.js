@@ -1,6 +1,6 @@
 /*localStorage só armazena arquivos em string, então é necessário 
-converter os dados em string por meio do comando 'JSON.stringify(dataBase)',
-para receber os dados em formato JSON, devemos utilizar o comando 
+converter os dados em string por meio do comando 'JSON.stringify(dataBase)'.
+Para receber os dados em formato JSON, devemos utilizar o comando 
 'JSON.parse(localStorage.getItem('todoList'))'*/
 
 'use strict';
@@ -110,7 +110,7 @@ const clickItem = (evento) => {
     /*Se o evento foi acionado por um checkbox, o item acionado é atualizado no DB*/
 }
 
-const botaoInserirItem = (evento) => {
+const botaoInserirItem = () => {
     //Capturar o texto do input
     const inputNovaTarefa = document.getElementById('novaTarefa');
     let texto = inputNovaTarefa.value;
