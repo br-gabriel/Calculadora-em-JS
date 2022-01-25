@@ -1,7 +1,7 @@
-//Alterar o formatar digito 
-//Adicionar um input date e horas, para o usuário definir a data e hora do evento
+//Alterar o formatarDigito e adicionar input datetime-local na pagina HTML
 'use strict';
 
+//Função que remove os 0's na frente do número deixando apenas os dois ultimos números
 const formatarDigito = (digito) => `0${digito}`.slice(-2);
 
 const atualizar = (tempo) => {
@@ -32,6 +32,8 @@ const contagemRegressiva = (tempo) => {
         tempo--;
     }
     
+    //setInterval recebe uma callback e o tempo de execução em milisegundos para executar a função novamente
+    //Para utilizar o clearInterval, é necessário enviar um id do setInterval para parar a função correta
     const id = setInterval(contar, 1000);
 }
 

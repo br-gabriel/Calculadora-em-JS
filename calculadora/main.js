@@ -5,10 +5,14 @@ const display = document.getElementById('display');
 const numeros = document.querySelectorAll('[id*=tecla]');
 const operadores = document.querySelectorAll('[id*=operador]');
 
+//Inicia o script considerando que o numero a ser inserido é um novo número
 let novoNumero = true;
+
+//Variavéis criadas porém sem valor atribuido, tornando-as 'undefined'
 let operador;
 let numeroAnterior;
 
+//Se o operador for diferente de undefined significa que um operador foi atribuido e é necessario fazer alguma operação
 const operacaoPendente = () => operador !== undefined;
 
 const calcular = () => {
