@@ -1,1 +1,1 @@
-# projetos-em-js
+# Calculadora em JS
